@@ -1,26 +1,75 @@
-var gulp = require('gulp');
+// Plugins
+var browserSync = require('browser-sync').create();
+var gulp = require('gulp-v4');
+var noop = require('gulp-noop');
 var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var autoprefixer = require('gulp-autoprefixer');
-var cssnano = require('gulp-cssnano');
+var sassGlob = require('gulp-sass-glob');
+var autoprefix = require('gulp-autoprefixer');
+var cleanCss = require('gulp-clean-css');
 
-gulp.task('sass', function() {
+
+var path = {
+    src: 'scss/',
+    assets: 'src/css/',
+    node_modules: 'node_modules/',
+  };
+
+// BrowserSync.
+function browserSyncInit () {
+  browserSync.init({
+    files: [ path.src + '**/*.scss' ],
+    proxy: 'http://localhost:3000/',
+    browser: 'chrome'
+  });
+}
+
+// Compile SASS.
+function compileSASS () {
   return gulp
-    .src('src/**/*.scss')
-    .pipe(sass())
+    .src(path.src + '**/*.scss')
+    .pipe(sassGlob())
     .pipe(
-      autoprefixer({
-        browsers: ['last 2 versions'],
-        cascade: false,
-      }),
+      path.env === 'development'
+        ? sass({
+            includePaths: [ path.node_modules, './' ],
+            outputStyle: 'expanded'
+          })
+        : sass({
+            includePaths: [ path.node_modules, './' ],
+            outputStyle: 'compressed'
+          })
     )
-    .pipe(cssnano())
-    .pipe(concat('global.css'))
-    .pipe(gulp.dest('public/css'));
+    .pipe(
+      autoprefix({
+        browsers: [ 'last 2 versions' ]
+      })
+    )
+    .pipe(path.env === 'production' ? cleanCss() : noop())
+    .pipe(gulp.dest(path.assets));
+}
+
+// Watch task.
+gulp.task('watch', gulp.series(runWatch));
+
+function runWatch () {
+  gulp.watch(path.src + '**/*.scss', compileSASS);
+}
+
+// Build tasks.
+gulp.task('dev', gulp.series(compileSASS), function (done) {
+  environment('development');
+  done();
+});
+gulp.task('default', gulp.series('dev', gulp.parallel('watch', browserSyncInit)), function (done) {
+  done();
+});
+gulp.task('prod', gulp.series(compileSASS), function (done) {
+  environment('production');
+  done();
 });
 
-gulp.task('watch', function() {
-  gulp.watch('src/**/*.scss', ['sass']);
-});
-
-gulp.task('default', ['watch']);
+// Helper function for selecting environment.
+function environment (env) {
+    console.log('Running tasks in ' + env + ' mode.');
+    return (path.env = env);
+  }
