@@ -5,13 +5,14 @@
   "dependencies": {
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-router-dom": "^4.2.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm-run-all -p start-js gulp",
+    "start-js": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
     "gulp": "gulp",
     "gulp-prod": "gulp prod",
     "gulp-dev": "gulp dev"
@@ -23,6 +24,7 @@
     "gulp-clean-css": "^3.9.2",
     "gulp-noop": "1.0.0",
     "gulp-sass": "^3.1.0",
-    "gulp-sass-glob": "^1.0.8"
+    "gulp-sass-glob": "^1.0.8",
+    "npm-run-all": "^4.1.2"
   }
 }
