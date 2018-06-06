@@ -7,13 +7,13 @@ const App = () => (
   <div className="App">
     <ul>
       <li>
-        <Link href="/">Home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <Link href="/About">About</Link>
+        <Link to="/About">About</Link>
       </li>
       <li>
-        <Link href="/Contact">Contact</Link>
+        <Link to="/Contact">Contact</Link>
       </li>
     </ul>
     <hr />

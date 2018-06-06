@@ -21,7 +21,12 @@
     "import/extensions": "off",
     "import/prefer-default-export": "off",
     "class-methods-use-this": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "jsx-a11y/anchor-is-valid": [ "error", {
+        "components": [ "Link" ],
+        "specialLink": [ "to", "hrefLeft", "hrefRight" ],
+        "aspects": [ "noHref", "invalidHref", "preferButton" ]
+      }]
   },
 
   "parser": "babel-eslint",
