@@ -9,13 +9,13 @@
 /// Mixin - small Breakpoint
 /// Allows easier @include small {} syntax
 @mixin small {
-  @media screen and (max-width: $small) {
+  @media screen and (min-width: $small) {
     @content;
   }
 }
 
 @mixin medium-small {
-  @media screen and (max-width: $medium-small) {
+  @media screen and (min-width: $medium-small) {
     @content;
   }
 }
@@ -23,7 +23,7 @@
 /// Mixin - medium Breakpoint
 /// Allows easier @include medium {} syntax
 @mixin medium {
-  @media screen and (max-width: $medium) {
+  @media screen and (min-width: $medium) {
     @content;
   }
 }
@@ -31,7 +31,7 @@
 /// Mixin - medium-wide Breakpoint
 /// Allows easier @include medium-wide {} syntax
 @mixin medium-wide {
-  @media screen and (max-width: $medium-wide) {
+  @media screen and (min-width: $medium-wide) {
     @content;
   }
 }
@@ -39,7 +39,7 @@
 /// Mixin - wide Breakpoint
 /// Allows easier @include wide {} syntax
 @mixin wide {
-  @media screen and (max-width: $wide) {
+  @media screen and (min-width: $wide) {
     @content;
   }
 }
@@ -47,7 +47,7 @@
 /// Mixin - extrawide Breakpoint
 /// Allows easier @include extrawide {} syntax
 @mixin extrawide {
-  @media screen and (max-width: $extrawide) {
+  @media screen and (min-width: $extrawide) {
     @content;
   }
 }
