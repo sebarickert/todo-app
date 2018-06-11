@@ -1,0 +1,29 @@
+//
+// @file
+// Creates styles for the btn container.
+//
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+
+  @include medium-small {
+    justify-content: space-around;
+    align-items: center;
+    max-width: 25em;
+    flex-direction: row;
+  }
+
+  p {
+    display: none;
+
+    @include medium-small {
+      display: block;
+    }
+  }
+}
+
+.btn-container--center {
+  margin-left: auto;
+  margin-right: auto;
+}
