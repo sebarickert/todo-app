@@ -1,0 +1,29 @@
+//
+// @file
+// This file includes all variables related to colors
+//
+
+$black: #000000;
+$black-gray: #111111;
+
+$gray: #5c5c5c;
+$gray-dark: #363636;
+
+$white: #ffffff;
+$white-light: #f8f8f8;
+$white-dark: #d9d9d9;
+
+$yellow: #ffd300;
+$yellow-bright: #ffd600;
+
+$red: #ee1c25;
+$blue: #2267ff;
+$purple: #89509a;
+
+$body-color: $black;
+$body-background: $white;
+
+$link-color: $blue;
+$link-color-hover: darken($blue, 20%);
+
+$black-rgba-01: rgba($black, 0.1);
