@@ -14,35 +14,31 @@ const path = {
 };
 
 // BrowserSync.
-function browserSyncInit() {
+const browserSyncInit = () => {
   browserSync.init({
     files: [`${path.src}**/*.scss`],
     proxy: 'http://localhost:3000/',
     browser: 'chrome',
   });
-}
+};
 
 // Compile SASS.
 function compileSASS() {
   return gulp
     .src(`${path.src}**/*.scss`)
     .pipe(sassGlob())
-    .pipe(
-      path.env === 'development'
-        ? sass({
-            includePaths: [path.node_modules, './'],
-            outputStyle: 'expanded',
-          })
-        : sass({
-            includePaths: [path.node_modules, './'],
-            outputStyle: 'compressed',
-          }),
-    )
-    .pipe(
-      autoprefix({
-        browsers: ['last 2 versions'],
-      }),
-    )
+    .pipe(path.env === 'development'
+      ? sass({
+        includePaths: [path.node_modules, './'],
+        outputStyle: 'expanded',
+      })
+      : sass({
+        includePaths: [path.node_modules, './'],
+        outputStyle: 'compressed',
+      }))
+    .pipe(autoprefix({
+      browsers: ['last 2 versions'],
+    }))
     .pipe(path.env === 'production' ? cleanCss() : noop())
     .pipe(gulp.dest(path.assets));
 }
@@ -53,7 +49,7 @@ function runWatch() {
 
 // Helper function for selecting environment.
 function environment(env) {
-  console.log(`Running tasks in ${env} mode.`); /* eslint-disable-line */
+  console.log(`Running tasks in ${env} mode.`); // eslint-disable-line
   path.env = env;
 }
 
@@ -61,16 +57,18 @@ function environment(env) {
 gulp.task('watch', gulp.series(runWatch));
 
 // Build tasks.
-gulp.task('dev', gulp.series(compileSASS), done => {
+gulp.task('dev', gulp.series(compileSASS), (done) => {
   environment('development');
   done();
 });
 
-gulp.task('default', gulp.series('dev', gulp.parallel('watch')), done => {
-  done();
-});
+gulp.task(
+  'default',
+  gulp.series('dev', gulp.parallel('watch'), browserSyncInit),
+  done => done(),
+);
 
-gulp.task('prod', gulp.series(compileSASS), done => {
+gulp.task('prod', gulp.series(compileSASS), (done) => {
   environment('production');
   done();
 });
