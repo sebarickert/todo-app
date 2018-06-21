@@ -20,7 +20,7 @@ const Home = () => (
         <option value="php">PHP</option>
       </select>
     </form>
-    <button class="btn btn--blue" type="submit">
+    <button className="btn btn--blue" type="submit">
       Submit me!
     </button>
     <div className="btn-container">
