@@ -12,6 +12,7 @@
     "start": "npm-run-all -p start-js gulp",
     "start-js": "react-scripts start",
     "build": "react-scripts build",
+    "eject": "react-scripts eject",
     "test": "react-scripts test --env=jsdom",
     "gulp": "gulp",
     "gulp-prod": "gulp prod",
