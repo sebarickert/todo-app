@@ -6,21 +6,21 @@ import { Home, About, Contact } from './';
 const App = () => (
   <div className="App">
     <div className="container container--inset">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
+      <ul className="main-menu">
+        <li className="main-menu__item">
+          <Link className="main-menu__link" to="/">PAGE 1</Link>
         </li>
-        <li>
-          <Link to="/About">About</Link>
+        <li className="main-menu__item">
+          <Link className="main-menu__link" to="/page-2">PAGE 2</Link>
         </li>
-        <li>
-          <Link to="/Contact">Contact</Link>
+        <li className="main-menu__item">
+          <Link className="main-menu__link" to="/page-3">PAGE 3</Link>
         </li>
       </ul>
     </div>
     <Route exact path="/" component={Home} />
-    <Route exact path="/About" component={About} />
-    <Route exact path="/Contact" component={Contact} />
+    <Route exact path="/page-2" component={About} />
+    <Route exact path="/page-3" component={Contact} />
   </div>
 );
 
