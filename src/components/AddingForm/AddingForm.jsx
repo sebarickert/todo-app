@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Creates 'AddingForm' component.
+// Gets 'handleSubmit' as a prop from the parent component.
 const AddingForm = ({ handleSubmit }) => (
   <form
     onSubmit={handleSubmit}
@@ -24,6 +26,7 @@ const AddingForm = ({ handleSubmit }) => (
   </form>
 );
 
+// Prop validation for 'AddingForm' component.
 AddingForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
 };
