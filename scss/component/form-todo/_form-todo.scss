@@ -1,0 +1,43 @@
+.form-todo {
+  max-width: 600px;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.form-todo__label {
+  margin-bottom: 2.5rem;
+}
+
+.form-todo__heading {
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.form-todo__input {
+  @include font-size(22px);
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid $white-dark;
+  outline: 0;
+  line-height: 3rem;
+  height: 3rem;
+  margin: 0;
+}
+
+.form-todo__button {
+  @include font-size(16px);
+  font-weight: 500;
+  border-radius: 100%;
+  width: 3rem;
+  height: 3rem;
+  background: $green-primary-1;
+  color: $white;
+  margin-bottom: 0;
+  margin-left: auto;
+
+  @include wide {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
