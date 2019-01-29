@@ -63,16 +63,4 @@ ul,
 ol {
   display: flex;
   flex-direction: column;
-
-  @include medium-small {
-    flex-direction: row;
-  }
-
-  li {
-    &:not(:first-child) {
-      @include medium-small {
-        margin-left: 1rem;
-      }
-    }
-  }
 }

@@ -3,3 +3,31 @@
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
+
+.todo-listing__item {
+  padding: 0.75rem 1rem;
+  background-color: pink;
+
+  &:not(:first-child) {
+    margin-top: 1rem;
+  }
+}
+
+.todo-listing__label {
+  display: flex;
+  align-items: center;
+}
+
+.todo-listing__task {
+  @include font-size(20px);
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+}
+
+.todo-listing__checkbox {
+  margin: 0;
+}
+
+.todo-listing__delete {
+  margin-left: auto;
+}

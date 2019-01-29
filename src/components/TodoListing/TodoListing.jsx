@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { TodoListingItem } from './';
 
 const TodoListing = ({ todos }) => (
-  <div className="todo-listing container container--inset">
+  <ul className="todo-listing container container--inset">
     {todos.map(i => (
       <TodoListingItem key={i.id} {...i} />
     ))}
-  </div>
+  </ul>
 );
 
 TodoListing.propTypes = {
