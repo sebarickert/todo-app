@@ -4,11 +4,14 @@ $base-font-size-mobile: 14px;
 $base-font-size-mobile-rem: 0.875rem;
 $base-line-height: 1.375;
 
-$base-font-family: 'roboto_regular';
-$base-font-family-bold: 'roboto_bold';
-$base-font-family-light: 'roboto_light';
-$primary-font-family: 'lato_regular';
-$primary-font-family-bold: 'lato_bold';
+$system-font: -apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial,
+  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+$base-font-family: $system-font;
+$base-font-family-bold: $system-font;
+$base-font-family-light: $system-font;
+$primary-font-family: $system-font;
+$primary-font-family-bold: $system-font;
 
 $heading-font-family: $primary-font-family;
 
