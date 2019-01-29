@@ -14,8 +14,8 @@ const AddingForm = ({ handleSubmit }) => (
       </h2>
       <input
         type="text"
-        name="task-name"
-        id="task-name"
+        name="taskName"
+        id="taskName"
         className="form-todo__input"
         placeholder="Tell me your plans!"
       />
