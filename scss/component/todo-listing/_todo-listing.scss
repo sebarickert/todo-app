@@ -5,15 +5,8 @@
 }
 
 .todo-listing__item {
-  padding: 0.75rem 1rem;
-  background-color: pink;
-
-  &:not(:first-child) {
-    margin-top: 1rem;
-  }
-}
-
-.todo-listing__label {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid $white-dark;
   display: flex;
   align-items: center;
 }
@@ -21,13 +14,62 @@
 .todo-listing__task {
   @include font-size(20px);
   margin-bottom: 0;
-  margin-left: 1.5rem;
+  margin-left: 2.5rem;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  line-height: 100%;
 }
 
 .todo-listing__checkbox {
-  margin: 0;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid $white-dark;
+  border-radius: 3px;
+  padding: 0;
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease-in-out;
 }
 
 .todo-listing__delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
   margin-left: auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  display: block;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $red;
+  }
+}
+
+.todo-listing__item--active {
+  .todo-listing__checkbox {
+    background-color: $green-primary-1;
+    border-color: $green-primary-1;
+
+    &:after {
+      content: '';
+      height: 6px;
+      width: 9px;
+      border-left: 2px solid;
+      border-bottom: 2px solid;
+      transform: rotate(-60deg) translate(-40%, -50%);
+      position: absolute;
+      left: 50%;
+      top: 0;
+      border-color: $white;
+    }
+  }
+
+  .todo-listing__task {
+    color: $white-dark;
+  }
 }

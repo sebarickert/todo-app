@@ -40,12 +40,27 @@ class App extends Component {
     taskName.value = '';
   };
 
+  handleDone = (id) => {
+    const { todos } = this.state;
+    const newTodoList = todos.map(i => (i.id !== id ? i : { ...i, status: !i.done }));
+    this.setState({ todos: newTodoList });
+  };
+
+  handleDelete = (id) => {
+    const currentState = [...this.state.todos];
+    this.setState({ todos: currentState.filter(i => i.id !== id) });
+  };
+
   render() {
     const { todos } = this.state;
     return (
       <div className="App">
         <AddingForm handleSubmit={this.handleSubmit} />
-        <TodoListing todos={todos} />
+        <TodoListing
+          todos={todos}
+          handleDone={this.handleDone}
+          handleDelete={this.handleDelete}
+        />
       </div>
     );
   }

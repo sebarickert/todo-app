@@ -3,10 +3,15 @@ import PropTypes from 'prop-types';
 
 import { TodoListingItem } from './';
 
-const TodoListing = ({ todos }) => (
-  <ul className="todo-listing container container--inset">
+const TodoListing = ({ todos, handleDone, handleDelete }) => (
+  <ul className="todo-listing container">
     {todos.map(i => (
-      <TodoListingItem key={i.id} {...i} />
+      <TodoListingItem
+        key={i.id}
+        {...i}
+        handleDone={handleDone}
+        handleDelete={handleDelete}
+      />
     ))}
   </ul>
 );
@@ -17,6 +22,8 @@ TodoListing.propTypes = {
     task: PropTypes.string,
     status: PropTypes.bool,
   })).isRequired,
+  handleDone: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export { TodoListing };
