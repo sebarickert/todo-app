@@ -42,7 +42,7 @@ class App extends Component {
 
   handleDone = (id) => {
     const { todos } = this.state;
-    const newTodoList = todos.map(i => (i.id !== id ? i : { ...i, status: !i.done }));
+    const newTodoList = todos.map(i => (i.id !== id ? i : { ...i, status: !i.status }));
     this.setState({ todos: newTodoList });
   };
 
