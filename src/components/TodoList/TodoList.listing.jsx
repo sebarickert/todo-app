@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { TodoListingItem } from './';
+import { TodoListingItem } from './TodoList.listing.item';
 
 const TodoListing = ({ todos, handleDone, handleDelete }) => (
   <ul className="todo-listing container">
