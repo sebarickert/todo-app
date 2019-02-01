@@ -8,10 +8,13 @@ const TodoListingItem = ({
     id={`todo-item--${id}`}
     className={`todo-listing__item ${status ? 'is-active' : ''}`}
   >
-    <button className="todo-listing__checkbox" onClick={() => handleDone(id)} />
-    <h3 className="todo-listing__task">{task}</h3>
     <button
-      className="btn todo-listing__delete"
+      className="todo-listing__item-checkbox"
+      onClick={() => handleDone(id)}
+    />
+    <h3 className="todo-listing__item-task">{task}</h3>
+    <button
+      className="btn todo-listing__item-delete"
       onClick={() => handleDelete(id)}
     >
       <i className="fas fa-trash" />

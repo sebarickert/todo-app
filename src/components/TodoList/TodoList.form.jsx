@@ -6,21 +6,21 @@ import PropTypes from 'prop-types';
 const AddingForm = ({ handleSubmit }) => (
   <form
     onSubmit={handleSubmit}
-    className="form-todo container container--inset"
+    className="todo-form container container--inset"
   >
-    <label htmlFor="task-name" className="form-todo__label">
-      <h2 className="form-todo__heading">
+    <label htmlFor="task-name" className="todo-form__label">
+      <h2 className="todo-form__heading">
         What&apos;re you trying to achieve?
       </h2>
       <input
         type="text"
         name="taskName"
         id="taskName"
-        className="form-todo__input"
+        className="todo-form__input"
         placeholder="Tell me your plans!"
       />
     </label>
-    <button type="submit" className="btn form-todo__button">
+    <button type="submit" className="btn todo-form__button">
       <i className="fas fa-plus" />
     </button>
   </form>
