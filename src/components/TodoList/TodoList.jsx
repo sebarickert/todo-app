@@ -33,11 +33,19 @@ class TodoList extends Component {
       status: false,
     };
 
-    this.setState(prevState => ({
-      todos: [...prevState.todos, newItem],
-    }));
+    if (taskName.value === '') {
+      taskName.classList.add('is-empty');
+      taskName.placeholder = "Please don't leave me empty!";
+    } else {
+      this.setState(prevState => ({
+        todos: [...prevState.todos, newItem],
+      }));
 
-    taskName.value = '';
+      taskName.classList.remove('is-empty');
+      taskName.placeholder = 'Tell me your plans!';
+
+      taskName.value = '';
+    }
   };
 
   handleDone = (id) => {
