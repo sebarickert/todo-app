@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { AddingForm } from './TodoList.form';
-import { TodoListing } from './TodoList.listing';
+import { AddingForm, TodoListing, TodoListEmpty } from './';
 
 class TodoList extends Component {
   constructor(props) {
@@ -9,11 +8,11 @@ class TodoList extends Component {
 
     this.state = {
       todos: [
-        {
-          id: 1,
-          task: 'get shit done',
-          status: false,
-        },
+        // {
+        //   id: 1,
+        //   task: 'get shit done',
+        //   status: false,
+        // },
       ],
     };
   }
@@ -64,11 +63,15 @@ class TodoList extends Component {
     return (
       <div className="todo-list">
         <AddingForm handleSubmit={this.handleSubmit} />
-        <TodoListing
-          todos={todos}
-          handleDone={this.handleDone}
-          handleDelete={this.handleDelete}
-        />
+        {todos.length ? (
+          <TodoListing
+            todos={todos}
+            handleDone={this.handleDone}
+            handleDelete={this.handleDelete}
+          />
+        ) : (
+          <TodoListEmpty />
+        )}
       </div>
     );
   }

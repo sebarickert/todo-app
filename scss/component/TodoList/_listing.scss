@@ -1,3 +1,9 @@
+.todo-list {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .todo-listing {
   max-width: 600px;
   padding-top: 2.5rem;
@@ -9,6 +15,10 @@
   border-bottom: 1px solid $white-dark;
   display: flex;
   align-items: center;
+
+  &:first-child {
+    border-top: 1px solid $white-dark;
+  }
 
   &.is-active {
     .todo-listing__item-checkbox {
