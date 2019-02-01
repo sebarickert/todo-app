@@ -79,7 +79,7 @@ class TodoList extends Component {
         {todos.length ? (
           <TodoListing
             todos={todos}
-            handleDone={this.handleStatus}
+            handleStatus={this.handleStatus}
             handleDelete={this.handleDelete}
           />
         ) : (

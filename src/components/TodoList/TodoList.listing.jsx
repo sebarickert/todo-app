@@ -9,7 +9,7 @@ const TodoListing = ({ todos, handleStatus, handleDelete }) => (
       <TodoListingItem
         key={i.id}
         {...i}
-        handleDone={handleStatus}
+        handleStatus={handleStatus}
         handleDelete={handleDelete}
       />
     ))}
