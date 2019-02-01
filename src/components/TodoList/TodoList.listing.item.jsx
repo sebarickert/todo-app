@@ -6,9 +6,7 @@ const TodoListingItem = ({
 }) => (
   <li
     id={`todo-item--${id}`}
-    className={`todo-listing__item todo-listing__item--${
-      status ? 'active' : 'in-progress'
-    }`}
+    className={`todo-listing__item ${status ? 'is-active' : ''}`}
   >
     <button className="todo-listing__checkbox" onClick={() => handleDone(id)} />
     <h3 className="todo-listing__task">{task}</h3>
