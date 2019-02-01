@@ -2,19 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TodoListingItem = ({
-  id, task, status, handleDone, handleDelete,
+  id, task, status, handleStatus, handleDelete,
 }) => (
   <li
     id={`todo-item--${id}`}
+    // Adds 'is-active' class when 'todos' 'status' state is true.
     className={`todo-listing__item ${status ? 'is-active' : ''}`}
   >
     <button
       className="todo-listing__item-checkbox"
-      onClick={() => handleDone(id)}
+      // If button is clicked, sends forward the clicked tasks ID.
+      onClick={() => handleStatus(id)}
     />
     <h3 className="todo-listing__item-task">{task}</h3>
     <button
       className="btn todo-listing__item-delete"
+      // If button is clicked, sends forward the clicked tasks ID.
       onClick={() => handleDelete(id)}
     >
       <i className="fas fa-trash" />
@@ -22,11 +25,12 @@ const TodoListingItem = ({
   </li>
 );
 
+// Prop validation for 'TodoListingItem' component.
 TodoListingItem.propTypes = {
   id: PropTypes.number.isRequired,
   task: PropTypes.string.isRequired,
   status: PropTypes.bool.isRequired,
-  handleDone: PropTypes.func.isRequired,
+  handleStatus: PropTypes.func.isRequired,
   handleDelete: PropTypes.func.isRequired,
 };
 

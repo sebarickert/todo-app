@@ -31,4 +31,5 @@ AddingForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
 };
 
+// Exports 'AddingForm' component
 export { AddingForm };
