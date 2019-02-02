@@ -14,6 +14,20 @@ class TodoList extends Component {
     };
   }
 
+  // Function to update input's class and placeholder.
+  setInputError = (input) => {
+    const currentInput = input;
+    currentInput.classList.add('is-empty');
+    currentInput.placeholder = "Please don't leave me empty!";
+  };
+
+  // Function to update input's class and placeholder.
+  setInputNormal = (input) => {
+    const currentInput = input;
+    currentInput.classList.remove('is-empty');
+    currentInput.placeholder = 'Tell me your plans!';
+  };
+
   // Create the 'handleSubmit' function to be used when the TodoForm is submitted.
   handleSubmit = (e) => {
     // When clicking on the submit button on the TodoForm, it will prevent it to "send" and refresh the page.
@@ -25,15 +39,14 @@ class TodoList extends Component {
 
     // If no value is given in the input and submitted, it will change the placeholder text and add a class to the input.
     if (taskName.value === '') {
-      taskName.classList.add('is-empty');
-      taskName.placeholder = "Please don't leave me empty!";
+      // Adds 'is-empty' class and updates placeholder text.
+      this.setInputError(taskName);
 
       return;
     }
 
     // Removes 'is-empty' class if present and change placeholder text back the the original one.
-    taskName.classList.remove('is-empty');
-    taskName.placeholder = 'Tell me your plans!';
+    this.setInputNormal(taskName);
 
     // Declare variables that gets us the correct ID.
     // 'stack' loops through 'todos' state and returns the amount of ID's there are in an array.
