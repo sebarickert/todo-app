@@ -23,6 +23,18 @@ class TodoList extends Component {
     const { todos } = this.state;
     const { taskName } = e.target;
 
+    // If no value is given in the input and submitted, it will change the placeholder text and add a class to the input.
+    if (taskName.value === '') {
+      taskName.classList.add('is-empty');
+      taskName.placeholder = "Please don't leave me empty!";
+
+      return;
+    }
+
+    // Removes 'is-empty' class if present and change placeholder text back the the original one.
+    taskName.classList.remove('is-empty');
+    taskName.placeholder = 'Tell me your plans!';
+
     // Declare variables that gets us the correct ID.
     // 'stack' loops through 'todos' state and returns the amount of ID's there are in an array.
     const stack = todos.map(i => i.id);
@@ -37,22 +49,13 @@ class TodoList extends Component {
       status: false,
     };
 
-    // If no value is given in the input and submitted, it will change the placeholder text and add a class to the input.
-    // Otherwise it will add the 'newItem' into the state, copying the old state and adding into it.
-    if (taskName.value === '') {
-      taskName.classList.add('is-empty');
-      taskName.placeholder = "Please don't leave me empty!";
-    } else {
-      this.setState(prevState => ({
-        todos: [...prevState.todos, newItem],
-      }));
+    // Updates state 'todos' with the 'newItem'
+    this.setState(prevState => ({
+      todos: [...prevState.todos, newItem],
+    }));
 
-      taskName.classList.remove('is-empty');
-      taskName.placeholder = 'Tell me your plans!';
-
-      // After input submit the input will be cleared.
-      taskName.value = '';
-    }
+    // After input submit the input will be cleared.
+    taskName.value = '';
   };
 
   // Function that will handle each tasks status.
