@@ -82,8 +82,9 @@ class TodoList extends Component {
   // Function that deletes tasks that are clicked.
   // When the button is clicked, it will update the state.
   handleDelete = (id) => {
-    const currentState = [...this.state.todos];
-    this.setState({ todos: currentState.filter(i => i.id !== id) });
+    this.setState(prevState => ({
+      todos: prevState.todos.filter(i => i.id !== id),
+    }));
   };
 
   render() {
