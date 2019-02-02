@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 
 // Creates 'AddingForm' component.
 // Gets 'handleSubmit' as a prop from the parent component.
-const AddingForm = ({ handleSubmit }) => (
-  <form
-    onSubmit={handleSubmit}
-    className="todo-form container container--inset"
-  >
+const AddingForm = ({ onSubmit }) => (
+  <form onSubmit={onSubmit} className="todo-form container container--inset">
     <label htmlFor="task-name" className="todo-form__label">
       <h2 className="todo-form__heading">
         What&apos;re you trying to achieve?
@@ -28,7 +25,7 @@ const AddingForm = ({ handleSubmit }) => (
 
 // Prop validation for 'AddingForm' component.
 AddingForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 // Exports 'AddingForm' component

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TodoListingItem = ({
-  id, task, status, handleStatus, handleDelete,
+  id, task, status, onStatusChange, onDelete,
 }) => (
   <li
     id={`todo-item--${id}`}
@@ -12,13 +12,13 @@ const TodoListingItem = ({
     <button
       className="todo-listing__item-checkbox"
       // If button is clicked, sends forward the clicked tasks ID.
-      onClick={() => handleStatus(id)}
+      onClick={() => onStatusChange(id)}
     />
     <h3 className="todo-listing__item-task">{task}</h3>
     <button
       className="btn todo-listing__item-delete"
       // If button is clicked, sends forward the clicked tasks ID.
-      onClick={() => handleDelete(id)}
+      onClick={() => onDelete(id)}
     >
       <i className="fas fa-trash" />
     </button>
@@ -30,8 +30,8 @@ TodoListingItem.propTypes = {
   id: PropTypes.number.isRequired,
   task: PropTypes.string.isRequired,
   status: PropTypes.bool.isRequired,
-  handleStatus: PropTypes.func.isRequired,
-  handleDelete: PropTypes.func.isRequired,
+  onStatusChange: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export { TodoListingItem };

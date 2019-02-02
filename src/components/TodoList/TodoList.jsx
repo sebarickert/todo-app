@@ -91,12 +91,12 @@ class TodoList extends Component {
     const { todos } = this.state;
     return (
       <div className="todo-list">
-        <AddingForm handleSubmit={this.handleSubmit} />
+        <AddingForm onSubmit={this.handleSubmit} />
         {todos.length ? (
           <TodoListing
             todos={todos}
-            handleStatus={this.handleStatus}
-            handleDelete={this.handleDelete}
+            onStatusChange={this.handleStatus}
+            onDelete={this.handleDelete}
           />
         ) : (
           <TodoListEmpty />
